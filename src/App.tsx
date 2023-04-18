@@ -1,7 +1,12 @@
 import "./App.scss";
+import Title from "./components/Title";
 
 function App() {
-  return null;
+  return (
+    <div className="app">
+      <Title />
+    </div>
+  );
 }
 
 export default App;

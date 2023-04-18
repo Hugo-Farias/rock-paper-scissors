@@ -1,0 +1,19 @@
+$color-background: radial-gradient(
+  134.34% 134.34% at 50% 0%,
+  #1f3757 0%,
+  #131537 100%
+);
+$color-font-highlight: #2a45c2;
+$color-gray: #565468;
+
+//screens
+$screen-small: 320px;
+$screen-mobile: 425px;
+$screen-medium: 768px;
+$screen-large: 1024px;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
