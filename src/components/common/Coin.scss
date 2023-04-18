@@ -1,0 +1,52 @@
+@import "../../variables";
+
+@mixin circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 10rem;
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+.coin {
+  $height: 12.9;
+  position: absolute;
+  height: #{$height}rem;
+  border-radius: 50%;
+  aspect-ratio: 0.99;
+
+  &::after {
+    content: "";
+    @include circle;
+    transform: translate(-50%, -54%);
+    background-color: #babfd4;
+    z-index: 1;
+  }
+
+  & .bottom-shadow {
+    @include circle;
+    transform: translate(-50%, -43%);
+    height: #{$height}rem;
+    z-index: -2;
+  }
+
+  & .circle {
+    @include circle;
+    transform: translate(-50%, -47%);
+    background-color: rgba(white, 95%);
+    //border-top: 8px solid #babfd4;
+    z-index: 2;
+
+    & svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  //& .inner-circle {
+  //  @include circle;
+  //}
+}

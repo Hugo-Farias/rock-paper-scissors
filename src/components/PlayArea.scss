@@ -1,0 +1,48 @@
+@import "../variables";
+
+@mixin fix-offset {
+  transform: translate(-15%, -15%);
+}
+
+.play-area {
+  $icon-offset: 20rem;
+  @include flex-center;
+  position: relative;
+  margin: 8rem 3rem;
+  //background-image: url("../assets/images/bg-triangle.svg");
+  //background-size: contain;
+  //background-repeat: no-repeat;
+
+  & img {
+    width: 60vw;
+    z-index: -999;
+  }
+
+  & .icons-container {
+    @include fix-offset;
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1;
+
+    & .top-left {
+      @include fix-offset;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    & .top-right {
+      @include fix-offset;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    & .bottom {
+      @include fix-offset;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+    }
+  }
+}
