@@ -1,7 +1,7 @@
 import "./Coin.scss";
 import React from "react";
 import { LightenColor } from "../../helper";
-import useImportSvg from "../../hook/useImportSvg";
+import useImage from "../../hook/useImage";
 
 interface prop {
   rps: "rock" | "paper" | "scissors";
@@ -14,20 +14,25 @@ const optionsColor = {
 };
 
 const Coin = function ({ rps }: prop) {
-  const { SvgIcon } = useImportSvg(`icon-${rps}`);
+  const { path } = useImage(`icon-${rps}`, "svg");
 
-  if (!SvgIcon) return null;
+  if (!path) return null;
 
-  const mainColor = LightenColor(optionsColor[rps], -17);
+  const darkColor = LightenColor(optionsColor[rps], -17);
 
   return (
-    <div className="coin" style={{ backgroundColor: optionsColor[rps] }}>
-      <div className="circle">
-        {/*@ts-ignore*/}
-        <SvgIcon />
+    <>
+      <span className="bottom-shadow" style={{ backgroundColor: darkColor }} />
+      <div className="coin" style={{ backgroundColor: optionsColor[rps] }}>
+        <div className="circle">
+          <img
+            src={path}
+            alt="RPS icon"
+            style={{ scale: rps === "rock" ? "0.85" : "1" }}
+          />
+        </div>
       </div>
-      <span className="bottom-shadow" style={{ backgroundColor: mainColor }} />
-    </div>
+    </>
   );
 };
 

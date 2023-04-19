@@ -8,7 +8,7 @@ interface optionsT {
   onError?: (err: Error) => void;
 }
 
-const useImportSvg = function (name: string, options: optionsT = {}) {
+const useSvgComponent = function (name: string, options: optionsT = {}) {
   const ImportedIconRef = useRef();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
@@ -39,4 +39,4 @@ const useImportSvg = function (name: string, options: optionsT = {}) {
   return { error, loading, SvgIcon: ImportedIconRef.current };
 };
 
-export default useImportSvg;
+export default useSvgComponent;
