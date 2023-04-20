@@ -2,8 +2,18 @@ import "./PlayArea.scss";
 import triangle from "../assets/images/bg-triangle.svg";
 import Coin from "./common/Coin";
 import Button from "./common/Button";
+import rulesImg from "../assets/images/image-rules.svg";
+import Modal from "./common/Modal";
+import { useAppDispatch } from "../helper";
+import { openRulesModal } from "../store/slice";
 
 const PlayArea = function () {
+  const dispatch = useAppDispatch();
+
+  const handleButtonClick = function () {
+    dispatch(openRulesModal(true));
+  };
+
   return (
     <>
       <div className="play-area">
@@ -19,8 +29,11 @@ const PlayArea = function () {
         </div>
       </div>
       <div className="button-rules">
-        <Button>Rules</Button>
+        <Button onClick={handleButtonClick}>Rules</Button>
       </div>
+      <Modal isOpen={false}>
+        <img src={rulesImg} alt="" />
+      </Modal>
     </>
   );
 };

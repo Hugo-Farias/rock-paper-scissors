@@ -1,3 +1,7 @@
+import { useDispatch, useSelector } from "react-redux";
+import type { TypedUseSelectorHook } from "react-redux";
+import type { RootState, AppDispatch } from "./store/store";
+
 export const LightenColor = function (color: string, percent: number): string {
   const num = parseInt(color.replace("#", ""), 16),
     amt = Math.round(2.55 * percent),
@@ -17,3 +21,7 @@ export const LightenColor = function (color: string, percent: number): string {
       .slice(1)
   );
 };
+
+// Use throughout your app instead of plain `useDispatch` and `useSelector`
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
