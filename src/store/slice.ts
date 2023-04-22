@@ -1,6 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { isRulesModal: false };
+const initialState = {
+  isRulesModal: false,
+  gameState: "picking",
+  playerScore: 0,
+  houseScore: 0,
+  playerPick: "",
+  housePick: "",
+};
 
 const mainSlice = createSlice({
   name: "main",

@@ -4,7 +4,7 @@ import { LightenColor } from "../../helper";
 import useImage from "../../hook/useImage";
 
 interface prop {
-  rps: "rock" | "paper" | "scissors";
+  rps: "rock" | "paper" | "scissors" | "";
 }
 
 const optionsColor = {
@@ -14,6 +14,8 @@ const optionsColor = {
 };
 
 const Coin = function ({ rps }: prop) {
+  if (!rps) return null;
+
   const { path } = useImage(`icon-${rps}`, "svg");
 
   if (!path) return null;

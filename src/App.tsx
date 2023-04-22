@@ -10,10 +10,6 @@ import { openRulesModal } from "./store/slice";
 function App() {
   const dispatch = useAppDispatch();
 
-  const handleButtonClick = function () {
-    dispatch(openRulesModal(true));
-  };
-
   return (
     <>
       <div className="app">
@@ -24,7 +20,7 @@ function App() {
         </Modal>
       </div>
       <div className="button-rules">
-        <Button onClick={handleButtonClick}>Rules</Button>
+        <Button onClick={() => dispatch(openRulesModal(true))}>Rules</Button>
       </div>
     </>
   );

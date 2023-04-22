@@ -9,8 +9,18 @@
   height: 100vh;
   width: 100vw;
   min-height: 46rem;
-  z-index: 999;
+  z-index: 99;
   transform: translateY(-120%);
+
+  @media (min-width: $screen-medium) {
+    height: 40rem;
+    width: unset;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -200%);
+    aspect-ratio: 0.95;
+    border-radius: 0.8rem;
+  }
 
   & > .close {
     position: absolute;
@@ -29,5 +39,24 @@
   &.enter,
   &.enter-done {
     transform: translateY(0%);
+
+    @media (min-width: $screen-medium) {
+      transform: translate(-50%, -50%);
+      //box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.5);
+    }
+
+    & + .background {
+      opacity: 1;
+    }
   }
+}
+
+.background {
+  transition: opacity 0.3s;
+  position: fixed;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  width: 100vw;
+  z-index: 98;
 }

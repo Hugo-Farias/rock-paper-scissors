@@ -20,11 +20,10 @@
     transition: box-shadow 0.2s ease-in-out;
     position: absolute;
     padding: 1px;
-    //transform: translateY(-50%);
     border-radius: 50%;
 
     &:hover {
-      box-shadow: 0 0 0 1.5em rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 0 2em rgba(255, 255, 255, 0.05);
     }
   }
 

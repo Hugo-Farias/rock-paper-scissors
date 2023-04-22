@@ -6,7 +6,7 @@ const Choose = function () {
   return (
     <>
       <div className="choose">
-        <img src={triangle} alt="" />
+        <img src={triangle} alt="background image" />
         <div className="icon top-left">
           <Coin rps="paper" />
         </div>

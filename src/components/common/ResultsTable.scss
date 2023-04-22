@@ -15,6 +15,7 @@
     & > .you-picked,
     & > .house-picked {
       @include coin-size;
+      transition: transform 0.3s ease-in-out;
       position: relative;
       border-radius: 50%;
       aspect-ratio: 1;
@@ -38,12 +39,14 @@
       }
     }
 
-    & > .you-picked {
-      //margin-left: auto;
-    }
+    @media (min-width: $screen-medium) {
+      & > .you-picked.finished {
+        transform: translateX(-50%);
+      }
 
-    & > .house-picked {
-      //margin-right: auto;
+      & > .house-picked.finished {
+        transform: translateX(50%);
+      }
     }
 
     & > .you-picked::after {
@@ -54,14 +57,33 @@
       content: "The house picked";
     }
   }
+
   .results {
     @include flex-center;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
     gap: 1rem;
     flex-direction: column;
+
+    @media (min-width: $screen-medium) {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     & > h2 {
       color: $color-background-white;
       text-transform: uppercase;
       font-size: 5.6rem;
+    }
+
+    &.finished {
+      opacity: 1;
+
+      @media (min-width: $screen-medium) {
+        //transform: translate(-50%, -50%);
+      }
     }
   }
 }
