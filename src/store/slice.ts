@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { rpsT } from "../typeDef";
+import { rpsGame } from "../helper";
 
 interface init {
   isRulesModal: boolean;
@@ -8,17 +9,17 @@ interface init {
   houseScore: number;
   playerPick: rpsT;
   housePick: rpsT;
-  finalResult: "win" | "lose" | "draw" | "";
+  finalResult: boolean | null;
 }
 
 const initialState: init = {
   isRulesModal: false,
   gameState: "choose",
-  playerScore: 0,
-  houseScore: 0,
+  playerScore: +localStorage.getItem("playerScore")! || 0,
+  houseScore: +localStorage.getItem("houseScore")! || 0,
   playerPick: "",
   housePick: "",
-  finalResult: "",
+  finalResult: null,
 };
 
 const mainSlice = createSlice({
@@ -37,18 +38,41 @@ const mainSlice = createSlice({
         "scissors",
       ];
 
-      state.housePick = options[Math.floor(Math.random() * 3)];
+      state.housePick = options.filter((v) => v !== action.payload)[
+        Math.floor(Math.random() * 2)
+      ];
 
-      console.log(state.playerPick);
-      console.log(state.housePick);
+      if (state.playerPick === "") return;
+
+      state.finalResult = rpsGame(state.playerPick, state.housePick);
+
+      if (state.finalResult) {
+        state.playerScore++;
+        localStorage.setItem("playerScore", state.playerScore + "");
+      }
+
+      if (state.finalResult === false) {
+        state.houseScore++;
+        localStorage.setItem("houseScore", state.houseScore + "");
+      }
+
       state.gameState = "result";
     },
     resetState: (state) => {
       state.gameState = "choose";
     },
+    resetScore: (state) => {
+      state.playerScore = 0;
+      state.houseScore = 0;
+
+      localStorage.removeItem("playerScore");
+      localStorage.removeItem("houseScore");
+      state.gameState = "choose";
+    },
   },
 });
 
-export const { openRulesModal, pick, resetState } = mainSlice.actions;
+export const { openRulesModal, pick, resetState, resetScore } =
+  mainSlice.actions;
 
 export const { reducer: mainReducer } = mainSlice;

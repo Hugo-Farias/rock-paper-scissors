@@ -15,6 +15,9 @@
 
   & .score-container {
     @include flex-center;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
     width: 65%;
     max-width: 15rem;
     max-height: 10rem;
@@ -39,6 +42,29 @@
 
       & > .house-score {
         color: rgba($color-gray, 0.8);
+      }
+    }
+
+    &::after {
+      transition: transform 0.3s ease-in-out;
+      content: "Reset score?";
+      transform: scale(0);
+      text-align: center;
+      font-size: 2rem;
+      color: $color-background-white;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(0.5rem);
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      position: absolute;
+      bottom: -3rem;
+      height: 3.4rem;
+      aspect-ratio: 3.5;
+    }
+    &:hover {
+      background-color: darken($color-background-white, 20%);
+      &::after {
+        transform: scale(1);
       }
     }
   }

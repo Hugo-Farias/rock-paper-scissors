@@ -1,24 +1,19 @@
 import "./Choose.scss";
 import triangle from "../assets/images/bg-triangle.svg";
 import Coin from "./common/Coin";
-import { useAppDispatch } from "../helper";
 
 const Choose = function () {
-  const dispatch = useAppDispatch();
-
-  const handleClick = function () {};
-
   return (
     <>
       <div className="choose">
         <img src={triangle} alt="background image" />
-        <div className="icon top-left" onClick={handleClick}>
+        <div className="icon top-left">
           <Coin rps="paper" />
         </div>
-        <div className="icon top-right" onClick={handleClick}>
+        <div className="icon top-right">
           <Coin rps="scissors" />
         </div>
-        <div className="icon bottom" onClick={handleClick}>
+        <div className="icon bottom">
           <Coin rps="rock" />
         </div>
       </div>

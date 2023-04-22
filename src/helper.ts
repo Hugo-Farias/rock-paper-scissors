@@ -26,7 +26,7 @@ type rps = "rock" | "paper" | "scissors";
 
 export const rpsGame = function (player: rps, house: rps): boolean | null {
   if (player === house) {
-    return null;
+    console.log("draw");
   }
 
   switch (player) {
