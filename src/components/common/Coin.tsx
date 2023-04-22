@@ -1,8 +1,13 @@
 import "./Coin.scss";
 import React from "react";
-import { LightenColor } from "../../helper";
+import { LightenColor, useAppDispatch, useAppSelector } from "../../helper";
 import useImage from "../../hook/useImage";
 import { rpsT } from "../../typeDef";
+import { pick } from "../../store/slice";
+
+interface prop {
+  rps: rpsT;
+}
 
 const optionsColor = {
   rock: "#DB2E4D",
@@ -10,8 +15,17 @@ const optionsColor = {
   scissors: "#EB9F0E",
 };
 
-const Coin = function ({ rps }: rpsT) {
+const Coin = function ({ rps }: prop) {
   if (!rps) return null;
+
+  const gameState = useAppSelector((state) => state.main.gameState);
+  const dispatch = useAppDispatch();
+
+  const handleClick = function () {
+    if (gameState === "result") return;
+
+    dispatch(pick(rps));
+  };
 
   const { path } = useImage(`icon-${rps}`, "svg");
 
@@ -22,7 +36,11 @@ const Coin = function ({ rps }: rpsT) {
   return (
     <>
       <span className="bottom-shadow" style={{ backgroundColor: darkColor }} />
-      <div className="coin" style={{ backgroundColor: optionsColor[rps] }}>
+      <div
+        className="coin"
+        style={{ backgroundColor: optionsColor[rps] }}
+        onClick={handleClick}
+      >
         <div className="circle">
           <img
             src={path}

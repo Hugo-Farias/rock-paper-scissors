@@ -1,3 +1,1 @@
-export interface rpsT {
-  rps: "rock" | "paper" | "scissors" | "";
-}
+export type rpsT = "rock" | "paper" | "scissors" | "";

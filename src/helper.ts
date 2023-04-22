@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import type { RootState, AppDispatch } from "./store/store";
-import { rpsT } from "./typeDef";
 
 export const LightenColor = function (color: string, percent: number): string {
   const num = parseInt(color.replace("#", ""), 16),
