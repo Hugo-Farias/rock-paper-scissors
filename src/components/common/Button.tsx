@@ -4,11 +4,12 @@ import React from "react";
 interface prop {
   children: React.ReactNode;
   onClick?: () => void;
+  alt?: boolean;
 }
 
-const Button = function ({ children, onClick }: prop) {
+const Button = function ({ children, onClick, alt }: prop) {
   return (
-    <button className="button" onClick={onClick}>
+    <button className={`button${alt ? "-alt" : ""}`} onClick={onClick}>
       {children}
     </button>
   );

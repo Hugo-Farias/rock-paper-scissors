@@ -8,7 +8,6 @@ const mainSlice = createSlice({
   reducers: {
     openRulesModal: (state, action) => {
       state.isRulesModal = action.payload;
-      console.log(state.isRulesModal);
     },
   },
 });

@@ -1,12 +1,29 @@
 @import "variables";
 
 .app {
+  //position: relative;
   margin: 0 auto;
   max-width: 70rem;
   min-width: 28rem;
+  //min-height: 100vh;
   padding: 3.2rem;
   //padding: 3.2rem 1vw;
   @media (max-width: $screen-mobile) {
     padding-inline: 3vw;
+  }
+}
+
+.button-rules {
+  //@include flex-center;
+  position: absolute;
+  bottom: 3rem;
+  //top: 80rem;
+  right: 50%;
+  transform: translateX(50%);
+
+  @media (min-width: $screen-medium) {
+    //justify-content: flex-end;
+    transform: unset;
+    right: 3rem;
   }
 }

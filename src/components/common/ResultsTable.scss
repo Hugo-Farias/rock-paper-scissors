@@ -1,0 +1,65 @@
+@import "../../variables";
+
+.results-container {
+  .plays-container {
+    @include flex-center;
+    margin-block: 8rem 10rem;
+    justify-content: space-around;
+    //gap: 6rem;
+    //max-width: 40rem;
+
+    @media (max-width: $screen-small) {
+      //gap: 3rem;
+      font-size: 1rem;
+    }
+
+    & > .you-picked,
+    & > .house-picked {
+      position: relative;
+      border-radius: 50%;
+      height: 11rem;
+      aspect-ratio: 1;
+      background-color: rgba(0, 0, 0, 0.1);
+
+      &::after {
+        position: absolute;
+        white-space: nowrap;
+        //bottom: -4rem;
+        top: -4rem;
+        left: 50%;
+        font-weight: 500;
+        font-size: 1.5rem;
+        letter-spacing: 0.16rem;
+        text-transform: uppercase;
+        transform: translateX(-50%);
+        color: #eee;
+      }
+    }
+
+    & > .you-picked {
+      //margin-left: auto;
+    }
+
+    & > .house-picked {
+      //margin-right: auto;
+    }
+
+    & > .you-picked::after {
+      content: "You picked";
+    }
+
+    & > .house-picked::after {
+      content: "The house picked";
+    }
+  }
+  .results {
+    @include flex-center;
+    gap: 1rem;
+    flex-direction: column;
+    & > h2 {
+      color: $color-background-white;
+      text-transform: uppercase;
+      font-size: 5.6rem;
+    }
+  }
+}

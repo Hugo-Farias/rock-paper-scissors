@@ -11,12 +11,6 @@ $height: 10;
   aspect-ratio: 1;
 }
 
-@mixin adapt-size {
-  height: 40vw;
-  min-height: 12.9rem;
-  max-height: 14.8rem;
-}
-
 .bottom-shadow {
   position: absolute;
   //height: #{$height + 2.9}rem;
@@ -57,7 +51,7 @@ $height: 10;
     & img {
       position: absolute;
       //height: #{$height / 2}rem;
-      height: 65%;
+      height: 55%;
       top: 50%;
       left: 50%;
       translate: -50% -50%;

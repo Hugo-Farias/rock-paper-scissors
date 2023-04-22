@@ -1,17 +1,13 @@
 @import "../variables";
 
-.play-area {
+.choose {
   @include flex-center;
   position: relative;
-  margin: 5rem auto;
+  margin: 0 auto 5rem auto;
   max-width: 45rem;
   min-width: 25rem;
   width: 50vw;
   aspect-ratio: 1;
-  //background-image: url("../assets/images/bg-triangle.svg");
-  //background-position: center;
-  //background-size: 70%;
-  //background-repeat: no-repeat;
 
   & > img {
     width: 70%;
@@ -19,12 +15,19 @@
 
   & .icon {
     @include flex-center;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out;
     position: absolute;
-    height: 18vw;
+    height: 21vw;
+    padding: 1px;
     min-height: 10rem;
     max-height: 18rem;
-    aspect-ratio: 1;
     //transform: translateY(-50%);
+    border-radius: 50%;
+
+    &:hover {
+      box-shadow: 0 0 0 1.5em rgba(255, 255, 255, 0.05);
+    }
   }
 
   & .top-left {
@@ -41,9 +44,4 @@
     bottom: 0;
     translate: 0 -30%;
   }
-}
-
-.button-rules {
-  @include flex-center;
-  justify-content: flex-end;
 }
