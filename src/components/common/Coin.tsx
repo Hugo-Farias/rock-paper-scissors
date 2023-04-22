@@ -2,10 +2,7 @@ import "./Coin.scss";
 import React from "react";
 import { LightenColor } from "../../helper";
 import useImage from "../../hook/useImage";
-
-interface prop {
-  rps: "rock" | "paper" | "scissors" | "";
-}
+import { rpsT } from "../../typeDef";
 
 const optionsColor = {
   rock: "#DB2E4D",
@@ -13,7 +10,7 @@ const optionsColor = {
   scissors: "#EB9F0E",
 };
 
-const Coin = function ({ rps }: prop) {
+const Coin = function ({ rps }: rpsT) {
   if (!rps) return null;
 
   const { path } = useImage(`icon-${rps}`, "svg");

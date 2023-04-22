@@ -1,8 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface init {
+  isRulesModal: boolean;
+  gameState: "result" | "choose";
+  playerScore: number;
+  houseScore: number;
+  playerPick: "rock" | "paper" | "scissors" | "";
+  housePick: "rock" | "paper" | "scissors" | "";
+}
+
+const initialState: init = {
   isRulesModal: false,
-  gameState: "picking",
+  gameState: "choose",
   playerScore: 0,
   houseScore: 0,
   playerPick: "",

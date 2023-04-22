@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import type { RootState, AppDispatch } from "./store/store";
+import { rpsT } from "./typeDef";
 
 export const LightenColor = function (color: string, percent: number): string {
   const num = parseInt(color.replace("#", ""), 16),
@@ -20,6 +21,23 @@ export const LightenColor = function (color: string, percent: number): string {
       .toString(16)
       .slice(1)
   );
+};
+
+type rps = "rock" | "paper" | "scissors";
+
+export const rpsGame = function (player: rps, house: rps): boolean | null {
+  if (player === house) {
+    return null;
+  }
+
+  switch (player) {
+    case "rock":
+      return house === "scissors";
+    case "paper":
+      return house === "rock";
+    case "scissors":
+      return house === "paper";
+  }
 };
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
