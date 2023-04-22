@@ -34,6 +34,13 @@
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
+
+    @media (min-width: $screen-medium) {
+      left: unset;
+      bottom: unset;
+      right: 0;
+      transform: unset;
+    }
   }
 
   &.enter,
