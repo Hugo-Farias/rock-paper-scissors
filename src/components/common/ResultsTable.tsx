@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../helper";
 import { resetState } from "../../store/slice";
 
 const ResultsTable = function () {
-  const [win, setWin] = useState<boolean | null>(true);
+  const win = useAppSelector((state) => state.main.finalResult);
   const [finished, setFinished] = useState<string>("");
   const dispatch = useAppDispatch();
   const housePick = useAppSelector((state) => state.main.housePick);
@@ -17,10 +17,10 @@ const ResultsTable = function () {
   return (
     <div className="results-container">
       <div className="plays-container">
-        <div className={`you-picked ${finished}`}>
+        <div className={`you-picked ${finished} ${win ? "win" : ""}`}>
           <Coin rps={playerPick} />
         </div>
-        <div className={`house-picked ${finished}`}>
+        <div className={`house-picked ${finished} ${!win ? "win" : ""}`}>
           <Coin rps={housePick} />
         </div>
       </div>

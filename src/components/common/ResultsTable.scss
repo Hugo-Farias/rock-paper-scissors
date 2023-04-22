@@ -15,11 +15,19 @@
     & > .you-picked,
     & > .house-picked {
       @include coin-size;
-      transition: transform 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      transition-property: transform, box-shadow;
       position: relative;
       border-radius: 50%;
       aspect-ratio: 1;
       background-color: rgba(0, 0, 0, 0.1);
+      box-shadow: none;
+
+      &.finished.win {
+        box-shadow: 0 0 0 4em rgba(255, 255, 255, 0.02),
+          0 0 0 8em rgba(255, 255, 255, 0.02),
+          0 0 0 16em rgba(255, 255, 255, 0.02);
+      }
 
       &::after {
         position: absolute;
@@ -80,10 +88,6 @@
 
     &.finished {
       opacity: 1;
-
-      @media (min-width: $screen-medium) {
-        //transform: translate(-50%, -50%);
-      }
     }
   }
 }
