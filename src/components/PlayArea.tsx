@@ -5,8 +5,8 @@ import ResultsTable from "./common/ResultsTable";
 const PlayArea = function () {
   return (
     <div className="play-area">
-      {/*<ResultsTable />*/}
-      <Choose />
+      <ResultsTable />
+      {/*<Choose />*/}
     </div>
   );
 };

@@ -6,7 +6,6 @@
     margin-block: 8rem 10rem;
     justify-content: space-around;
     //gap: 6rem;
-    //max-width: 40rem;
 
     @media (max-width: $screen-small) {
       //gap: 3rem;
@@ -15,17 +14,16 @@
 
     & > .you-picked,
     & > .house-picked {
+      @include coin-size;
       position: relative;
       border-radius: 50%;
-      height: 11rem;
       aspect-ratio: 1;
       background-color: rgba(0, 0, 0, 0.1);
 
       &::after {
         position: absolute;
         white-space: nowrap;
-        //bottom: -4rem;
-        top: -4rem;
+        bottom: -4rem;
         left: 50%;
         font-weight: 500;
         font-size: 1.5rem;
@@ -33,6 +31,10 @@
         text-transform: uppercase;
         transform: translateX(-50%);
         color: #eee;
+
+        @media (min-width: $screen-medium) {
+          top: -4rem;
+        }
       }
     }
 

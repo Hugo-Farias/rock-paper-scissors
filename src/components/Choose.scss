@@ -15,13 +15,11 @@
 
   & .icon {
     @include flex-center;
+    @include coin-size;
     cursor: pointer;
     transition: box-shadow 0.2s ease-in-out;
     position: absolute;
-    height: 21vw;
     padding: 1px;
-    min-height: 10rem;
-    max-height: 18rem;
     //transform: translateY(-50%);
     border-radius: 50%;
 

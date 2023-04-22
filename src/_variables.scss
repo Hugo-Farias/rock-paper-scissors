@@ -18,3 +18,9 @@ $screen-large: 1024px;
   align-items: center;
   justify-content: center;
 }
+
+@mixin coin-size {
+  height: 21vw;
+  min-height: 10rem;
+  max-height: 20rem;
+}
